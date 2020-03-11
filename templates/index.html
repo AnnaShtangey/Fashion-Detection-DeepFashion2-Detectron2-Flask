@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Detector</title>
+	 <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+
+
+    </ul>
+    
+  </div>
+</nav>
+<br/>
+<br/>
+
+<div class="jumbotron" style="background:#0686e4;color:#fff">
+    <div class="container">
+      <h2 class="display-3">Детектор одежды &nbsp;</h2>
+      <p>Using Detectron2</p>
+      
+    </div>
+  </div>
+<br/>
+
+<div class="container" >
+	
+	 {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+        
+           <h4>{{ message }}</h4>
+      
+    {% endfor %}
+    
+  {% else %} 
+  <h4>Загрузите фотографию</h4> 
+  {% endif %}
+{% endwith %}
+	
+{% block body %}{% endblock %}
+	
+	
+	
+	
+   <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file class="btn btn-primary" name=file>
+       <br/><br/>
+         <button type="submit" class="btn btn-primary">Upload</button>
+    
+
+
+ 
+
+
+</form>
+</div>
+<div class="container">
+	
+		
+<form action="/predict" method=post>
+      
+         <button type="submit" class="btn btn-primary">Detect</button>
+         <br/><br/>
+         
+     
+         
+</form>
+
+
+  
+
+
+
+<form action="/show" method=get>
+      
+         <button type="submit" class="btn btn-primary"> Show &nbsp;	</button>
+         
+         
+</form>
+
+
+        <br/>
+         
+         <a href="/" class="btn btn-primary" role="button">Clear</a>
+         
+
+
+	<br/><br/>
+          	<h4>Prediction</h4>
+			
+				
+
+		
+<img src = "{{ url_for('static', filename ='prediction.jpg') }}" width =500>			
+			
+			
+		
+</div>
+
+	<br/>
+  <br/>
+  <br/>
+
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
+
+</body>
+
+
+</html>
